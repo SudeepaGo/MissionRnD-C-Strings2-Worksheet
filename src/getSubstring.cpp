@@ -19,5 +19,24 @@ original String
 
 char * get_sub_string(char *str, int i, int j){
 
-    return NULL;
+	int k, l;
+
+	if (str==NULL)  //Check for null string
+        return NULL;
+
+	if (i <= j) //Proceed if i less than or equal to j
+	{
+		l = j - i + 1;
+		char *sub_string = (char *)malloc(sizeof(char)* l); //Dynamic memory allocation to the new string
+
+		l = 0;
+		for (k = i; k <= j; k++) //Copy the characters of str within given indices to the new string
+		{
+			sub_string[l] = str[k];
+			l++;
+		}
+		return sub_string;
+	}
+	else 
+		return NULL;
 }
