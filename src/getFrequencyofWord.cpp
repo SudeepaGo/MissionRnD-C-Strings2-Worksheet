@@ -12,11 +12,42 @@ Note: Dont modify original str or word,Just return count ,Spaces can also be par
 
 #include <stdlib.h>
 
+int findStringLen(char *);
+
 int count_word_in_str_way_1(char *str, char *word){
-	return 0;
+	int count = 0,c,i,j;
+	
+	int len = findStringLen(word); //Find the length of word
+
+	for (i = 0;str[i] !='\0';) //Loop through the characters of str
+	{
+		j = 0; c = 0;
+		while ((j<len) && (str[i] == word[j])) // Increment c while the count of characters in word is less than len and			                                      
+		    {                                   //character in str is equal to character in word
+				c++;
+				i++;
+				j++;
+			}
+			if (c == len)             //If c is equal to len then increment the count of word
+			{
+				count++;
+				c = 0;
+			}
+			else                     //Otherwise move to next character in str
+				i++;
+	}
+	return count;
 }
 
 int count_word_int_str_way_2_recursion(char *str, char *word){
 	return 0;
 }
 
+//Function to find length of a string
+int findStringLen(char *str)
+{
+	int length=0;
+	while (str[length] != '\0')
+		length++;
+	return length;
+}
